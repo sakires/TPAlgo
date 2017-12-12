@@ -1,2 +1,2 @@
 # TPAlgo
-TP algo
+TP
