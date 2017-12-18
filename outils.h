@@ -31,6 +31,7 @@ typedef struct{
 typedef struct {
 	string nom;
 	string prenom;
+	string nat;
 	int nais;
 	int mort;
 }t_auteur;
