@@ -576,4 +576,61 @@ void Ensemble (t_livre biblio[MAXLIVRE], int nblivre){
 //
 //
 ///////////////////////////////////////////////////
-/* void */
+void EntreeAuteur ( t_liste_aut liste_aut , t_biblio bib )
+{
+	int i = 0;
+	string nomaut;
+	string preaut;
+	bool estdeja = false;
+	cout<<"Entrer me nom de l auteur :"<<endl;
+	cin>>nomaut;
+	cout<<"Entrer le prenom  de l auteur :"<<endl;
+	cin>>preaut;
+	while (i<liste_aut.nbAut && estdeja == false)
+	{
+		if ( liste_aut.li_aut[i].nom == nomaut && liste_aut.li_aut[i].prenom == preaut)
+		{
+			estdeja=true;
+		}
+		else
+		{
+			i=i+1;
+		}
+	}
+	if ( estdeja==true)
+	{
+		cout<<"L auteur est deja repertorier "<<endl;
+		bib.bibli[bib.nblivre].nom_aut;
+	}
+	else
+	{
+		liste_aut.li_aut[liste_aut.nbAut].nom=nomaut;
+		liste_aut.li_aut[liste_aut.nbAut].prenom=preaut;
+		cout<<"Saisir la nationalite : "<<endl;
+		cin>>liste_aut.li_aut[liste_aut.nbAut].nat;
+		cout<<"Saisir l annee de naissance : "<<endl;
+		cin>>liste_aut.li_aut[liste_aut.nbAut].nais;
+		cout<<"Saisir l annee de mort : "<<endl;
+		cin>>liste_aut.li_aut[liste_aut.nbAut].mort;
+		bib.bibli[bib.nblivre].nom_aut = liste_aut.nbAut;
+		liste_aut.nbAut = liste_aut.nbAut +1;
+		
+	}
+
+	
+}
+//////////////////////////////////////////////////
+//
+//
+//
+//
+///////////////////////////////////////////////////
+void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int& i) { 
+	int pos;
+	pos = bib.bibli[i].nom_aut;
+	cout << liste_aut.li_aut[pos].nom;
+	cout << liste_aut.li_aut[pos].prenom;
+	cout << liste_aut.li_aut[pos].nat;
+	cout << liste_aut.li_aut[pos].nais;
+	cout << liste_aut.li_aut[pos].mort;
+}
