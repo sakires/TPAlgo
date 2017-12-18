@@ -1,6 +1,6 @@
 #ifndef OUTILS_H
 #define OUTILS_H
-/////////////////////////// include //////////////////////////////////////
+/////////////////////////// Include //////////////////////////////////////
 #include <iostream> 
 #include <string>
 #include <time.h>
@@ -8,37 +8,42 @@
 #include <stdlib.h>
 
 using namespace std;
-/////////////////////////////////////////////////////////////////////////
 
-///////////////////////// constante //////////////////////////////////////
+///////////////////////// Constante //////////////////////////////////////
 const int MININT = -2147483630; // On ne met pas au maximum pour la compatibilité entre PC.
 const int MAXINT = 2147483630;
 const int MAXLIVRE = 50;
-//////////////////////////////////////////////////////////////////////////
-
-///////////////////////// type composé ///////////////////////////////////
+#define TAILLEMATRICE 100
+///////////////////////// Type composé ///////////////////////////////////
 typedef struct {
 	string titre;
 	string nom_aut;
 	int annee;
 	int nb_pages;
 }t_livre;
+
 typedef struct{
 	t_livre bibli[MAXLIVRE];
 	int nblivre;
 }t_biblio;
+
+typedef struct {
+	string nom;
+	string prenom;
+	int nais;
+	int mort
+}t_auteur;
 //////////////////////////////////////////////////////////////////////////
 
-//////////////////////// fonction ////////////////////////////////////////
+//////////////////////// Fonction ////////////////////////////////////////
 bool date(int jour, int mois, int annee);
 int Alea();
 int Cherchelivre(t_livre biblio[MAXLIVRE], int nblivre, string livrerechercher);
 //void lendemain(int &j, int &m, int &a);
 //////////////////////////////////////////////////////////////////////////
 
-/////////////////////// procédure ////////////////////////////////////////
+/////////////////////// Procédure ////////////////////////////////////////
 void saisirControleEntierBorne(string message, int borneinf, int bornesup, int& nombre);
-#define TAILLEMATRICE 100
 void TableauCarre(int tab[TAILLEMATRICE][TAILLEMATRICE], int n);
 void Tableau(string tab[TAILLEMATRICE], string motsSaisie);
 void Mots(string motsSaisie);
@@ -55,6 +60,7 @@ void Ajout(t_livre biblio[MAXLIVRE], int& nblivre);
 void Affichagebibli(t_livre biblio[MAXLIVRE], int nblivre);
 void Suppression(t_livre biblio[MAXLIVRE], int& nblivre);
 void recherche(t_livre biblio[MAXLIVRE], int nblivres);
+void Ensemble (t_livre biblio[MAXLIVRE], int nblivre);
 //////////////////////////////////////////////////////////////////////////
 
 #endif
