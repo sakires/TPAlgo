@@ -16,6 +16,7 @@ const int MAXLIVRE = 50;
 const int MAX_AUTEUR = 100;
 #define TAILLEMATRICE 100
 ///////////////////////// Type composé ///////////////////////////////////
+
 typedef struct {
 	string titre;
 	int nom_aut;
@@ -23,8 +24,8 @@ typedef struct {
 	int nb_pages;
 }t_livre;
 
-typedef struct{
-	t_livre bibli[MAXLIVRE];
+typedef struct {
+	t_livre biblio[MAXLIVRE];
 	int nblivre;
 }t_biblio;
 
@@ -35,6 +36,7 @@ typedef struct {
 	int nais;
 	int mort;
 }t_auteur;
+
 typedef struct {
 	t_auteur li_aut[MAX_AUTEUR];
 	int nbAut;
@@ -45,7 +47,7 @@ typedef struct {
 //////////////////////// Fonction ////////////////////////////////////////
 bool date(int jour, int mois, int annee);
 int Alea();
-int Cherchelivre(t_livre biblio[MAXLIVRE], int nblivre, string livrerechercher);
+int Cherchelivre(t_biblio bib, string livrerechercher);
 //void lendemain(int &j, int &m, int &a);
 //////////////////////////////////////////////////////////////////////////
 
@@ -63,13 +65,13 @@ void TableauAuto(int N, int tab[TAILLEMATRICE]);
 void Tribulles(int tab[TAILLEMATRICE], int N);
 void Afftab(int tab[TAILLEMATRICE], int N);
 void bibliotheque();
-void Ajout(t_livre biblio[MAXLIVRE], int& nblivre);
-void Affichagebibli(t_livre biblio[MAXLIVRE], int nblivre);
-void Suppression(t_livre biblio[MAXLIVRE], int& nblivre);
-void recherche(t_livre biblio[MAXLIVRE], int nblivres);
-void Ensemble (t_livre biblio[MAXLIVRE], int nblivre);
+void Ajout(t_biblio bib);
+void Affichagebibli(t_biblio bib);
+void Suppression(t_biblio& bib);
+void recherche(t_biblio bib);
+void Ensemble(t_biblio bib);
 void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int& i);
-void EntreeAuteur ( t_liste_aut liste_aut , t_biblio bib );
+void EntreeAuteur(t_liste_aut liste_aut, t_biblio bib);
 //////////////////////////////////////////////////////////////////////////
 
 #endif

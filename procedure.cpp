@@ -15,20 +15,23 @@ void bibliotheque2() {
 	reco = true;
 	bib.nblivre = 0;
 	do {
-		cout << "vous avez " << bib.nblivre << " livre" << endl;
-		saisirControleEntierBorne("1-afficher l'enssemble des livre\n 2-ajouter un nouveau livre\n 3-supprimer un livre\n 4-rechercher un livre\n 5-Ensemble\n 6-quitter\n ", 0, 6, choix);
+		cout << "Vous avez " << bib.nblivre << " livre(s)" << endl;
+		saisirControleEntierBorne("1-Afficher l'ensemble des livres\n 2-Ajouter un nouveau livre\n 3-Supprimer un livre\n 4-Rechercher un livre\n 5-Ensemble\n 6-Quitter\n ", 0, 6, choix);
 		switch (choix) {
-		case 1:Affichagebibli(bib.bibli, bib.nblivre);
+		case 1:
+			Affichagebibli(bib);
 			break;
-		case 2: Ajout(bib.bibli, bib.nblivre);
+		case 2: 
+			Ajout(bib);
 			break;
-		case 3:Suppression(bib.bibli, bib.nblivre);
+		case 3:
+			Suppression(bib);
 			break;
 		case 4:
-			recherche(bib.bibli, bib.nblivre);
+			recherche(bib);
 			break;
 		case 5:
-			Ensemble (bib.bibli, bib.nblivre);
+			Ensemble(bib);
 			break;
 		default:cout << "bye" << endl;
 			reco = false;

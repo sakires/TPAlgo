@@ -5,7 +5,6 @@ using namespace std;
 int main()
 {
 	int exo;
-	void find();
 	void bibliotheque2();
 
 	do {
