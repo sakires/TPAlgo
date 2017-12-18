@@ -68,6 +68,8 @@ void Affichagebibli(t_livre biblio[MAXLIVRE], int nblivre);
 void Suppression(t_livre biblio[MAXLIVRE], int& nblivre);
 void recherche(t_livre biblio[MAXLIVRE], int nblivres);
 void Ensemble (t_livre biblio[MAXLIVRE], int nblivre);
+void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int& i);
+void EntreeAuteur ( t_liste_aut liste_aut , t_biblio bib );
 //////////////////////////////////////////////////////////////////////////
 
 #endif
