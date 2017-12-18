@@ -462,20 +462,19 @@ void Ajout(t_livre biblio[MAXLIVRE], int& nblivre) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void recherche (t_livre biblio[MAXLIVRE],int nblivre){
 	int pos;
-	int i=0;
 	string livre_rech;
 
 	cout << "Saisir le nom du livre rechercher" << endl;
 	cin >> livre_rech;
 	pos = Cherchelivre(biblio, nblivre, livre_rech);
-	if (i >= 0) {
+	if (pos >= 0) {
 		cout << "le titre est :" << biblio[pos].titre << endl;
 		cout << "l'auteur est :" << biblio[pos].nom_aut << endl;
 		cout << "l'annee de publication  est :" << biblio[pos].annee << endl;
 		cout << "il contient  :" << biblio[pos].nb_pages << " pages" << endl;
 	}
-	else {
-		cout << "le livre na pas été trouver" << endl;
+	if (pos == -1) {
+		cout << "le livre na pas ete trouver" << endl;
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -490,7 +489,7 @@ int Cherchelivre(t_livre biblio[MAXLIVRE], int nblivre,string livrerechercher)
 {
 	bool livre_trouver=false;
 	int i=0;
-	while (i < nblivre && !livre_trouver) {
+	while (i < nblivre && livre_trouver==false ) {
 		if (biblio[i].titre==livrerechercher){
 			livre_trouver = true;
 		}
@@ -498,7 +497,7 @@ int Cherchelivre(t_livre biblio[MAXLIVRE], int nblivre,string livrerechercher)
 			i++;
 		}
 	}
-	if (!livre_trouver)
+	if (livre_trouver==false)
 	{
 		i = -1;
 	}
@@ -521,17 +520,60 @@ void Suppression(t_livre biblio[MAXLIVRE], int& nblivre) {
 	cout << "entrer le titre du livre a supp" << endl;
 	cin >> livre_supp;
 	position = Cherchelivre(biblio, nblivre, livre_supp);
-	if (i>=0){
-		for (i = position; i < nblivre - 1; i++) {
+	if (position >=0){
+		for (i = position; i < nblivre; i++) {
 			biblio[i].titre = biblio[i + 1].titre;
 			biblio[i].nom_aut = biblio[i + 1].nom_aut;
 			biblio[i].annee = biblio[i + 1].annee;
 			biblio[i].nb_pages = biblio[i + 1].nb_pages;
 			nblivre = nblivre - 1;
+			
 		}
-		}
+	}
 	else {
 		cout << "le livre n'a pas été trouver " << endl;
 	}
 	
 }
+
+////////////////////////////////////////////////////////////
+// Procédure permettant de savoir si la bibliothèque est un ensemble (analyser la redondance)
+// Entrée: Bibliothèque et l'entier nblivre.
+// Sortie: Pas de sortie.
+////////////////////////////////////////////////////////////
+void Ensemble (t_livre biblio[MAXLIVRE], int nblivre){
+	int i=0;
+	int j = 0;
+	bool ensemble=true;
+	t_livre livre;
+
+	while (ensemble && i<nblivre)
+	{
+		livre.titre=biblio[i].titre;
+		livre.nom_aut=biblio[i].nom_aut;
+		livre.annee=biblio[i].annee;
+		while (ensemble && j<nblivre)
+		{
+			if (livre.titre==biblio[j].titre && livre.nom_aut==biblio[j].nom_aut && livre.annee==biblio[j].annee)
+			{
+				ensemble=false;
+			}
+			j++;
+		}
+		i++;
+	}
+	if(ensemble==true){
+		cout<<" c'est un ensemble"<<endl;
+	}
+	else {
+		cout<<"c'est pas un ensemble"<<endl;
+	}
+}
+
+//////////////////////////////////////////////////
+//
+//
+//
+//
+///////////////////////////////////////////////////
+/* void */

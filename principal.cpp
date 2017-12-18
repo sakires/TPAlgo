@@ -9,26 +9,21 @@ int main()
 	void bibliotheque2();
 
 	do {
-		saisirControleEntierBorne("\n1 -Traitement de mots \n2 -Traitement de mots avec tableau \n3 -bibliotheque \n4 -Quitter ", 0, 4, exo);
+		saisirControleEntierBorne("\n1 -Bibliotheque \n2 -Quitter \n", 0, 4, exo);
 		switch (exo)
 		{
 		case 1:
-			/*ASCII();*/
-			break;
-		case 2:
-			/*ASCIITableau();*/
-			break;
-		case 3:
 			bibliotheque2();
 			break;
-		case 4:
+		case 2:
 			cout << "Quitter" << endl;
 			break;
+
 		default:
 			cout << "Quitter" << endl;
 			break;
 		}
-	} while (exo != 4);
+	} while (exo != 2);
 	system("pause");
 	return 0;
 }

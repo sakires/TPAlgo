@@ -13,6 +13,7 @@ using namespace std;
 const int MININT = -2147483630; // On ne met pas au maximum pour la compatibilité entre PC.
 const int MAXINT = 2147483630;
 const int MAXLIVRE = 50;
+const int MAX_AUTEUR = 100;
 #define TAILLEMATRICE 100
 ///////////////////////// Type composé ///////////////////////////////////
 typedef struct {
@@ -31,9 +32,12 @@ typedef struct {
 	string nom;
 	string prenom;
 	int nais;
-	int mort
+	int mort;
 }t_auteur;
-
+typedef struct {
+	t_auteur li_aut[MAX_AUTEUR];
+	int nbAut;
+}t_liste_aut;
 
 //////////////////////////////////////////////////////////////////////////
 
