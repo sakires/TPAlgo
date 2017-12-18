@@ -8,10 +8,10 @@
 using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
-// Programme permettant de saisr une variable entière et ceux entre les bornes choisi
-//  entré : le message souhaitant être afficher, les deux borne (borne inférieur borneinf et 
-//   borne supérieur bornesup 
-// Sorti : le nombre souhaitant être saisi 
+// Programme permettant de saisr une variable entiÃ¨re et ceux entre les bornes choisi
+//  entrÃ© : le message souhaitant Ãªtre afficher, les deux borne (borne infÃ©rieur borneinf et 
+//   borne supÃ©rieur bornesup 
+// Sorti : le nombre souhaitant Ãªtre saisi 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 void saisirControleEntierBorne(string message, int borneinf, int bornesup, int& nombre)
@@ -25,9 +25,9 @@ void saisirControleEntierBorne(string message, int borneinf, int bornesup, int& 
 	}
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
-// Programme permettant de renvoyer un booléens pour vérifier la validité de la date  
-// Entrer : on rentre la date de manière numérique dans l'ordre suivant jour mois annee        
-// Retour : on retourne un booléen ( vrai : date cohérente ; faux,date non cohérente)                                                                                                    
+// Programme permettant de renvoyer un boolÃ©ens pour vÃ©rifier la validitÃ© de la date  
+// Entrer : on rentre la date de maniÃ¨re numÃ©rique dans l'ordre suivant jour mois annee        
+// Retour : on retourne un boolÃ©en ( vrai : date cohÃ©rente ; faux,date non cohÃ©rente)                                                                                                    
 ///////////////////////////////////////////////////////////////////////////////////////////////// 
 bool date(int jour, int mois, int annee) {
 
@@ -100,9 +100,9 @@ bool date(int jour, int mois, int annee) {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Remplissage d'un tableau Carré en fonction d'un entier.
-// Entrée / Sortie : Le tableau avec les valeurs saisies.
-// Juste en entrée : l'entier n.
+// UtilitÃ© : Remplissage d'un tableau CarrÃ© en fonction d'un entier.
+// EntrÃ©e / Sortie : Le tableau avec les valeurs saisies.
+// Juste en entrÃ©e : l'entier n.
 ////////////////////////////////////////////////////////////////////////////////////////
 
 void TableauCarre(int tab[TAILLEMATRICE][TAILLEMATRICE], int n) {
@@ -116,9 +116,9 @@ void TableauCarre(int tab[TAILLEMATRICE][TAILLEMATRICE], int n) {
 	}
 }
 ///////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Compter le nombre de voyelles dans une chaines de caractère.
-// Entrée / Sortie : Le tableau a une dimension.
-// Juste en entrée : la chaine saisie.
+// UtilitÃ© : Compter le nombre de voyelles dans une chaines de caractÃ¨re.
+// EntrÃ©e / Sortie : Le tableau a une dimension.
+// Juste en entrÃ©e : la chaine saisie.
 ////////////////////////////////////////////////////////////////////////////////////////
 
 void Mots(string motsSaisie) {
@@ -138,9 +138,9 @@ void Mots(string motsSaisie) {
 	system("PAUSE");
 }
 ///////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Vérifier si la chaine saisie est un palindrome.
-// Entrée / Sortie : Le tableau a une dimension.
-// Juste en entrée : la chaine saisie.
+// UtilitÃ© : VÃ©rifier si la chaine saisie est un palindrome.
+// EntrÃ©e / Sortie : Le tableau a une dimension.
+// Juste en entrÃ©e : la chaine saisie.
 ////////////////////////////////////////////////////////////////////////////////////////
 
 void Palindrome(string motsSaisie) {
@@ -156,12 +156,12 @@ void Palindrome(string motsSaisie) {
 			motsSaisie[i] = motsSaisie[i] - 32;
 		}
 	}
-	// On met tout en majuscule (voir la procédure majuscule)
+	// On met tout en majuscule (voir la procÃ©dure majuscule)
 	i = 0;
 	j = motsSaisie.length() - 1;
 	bool isPalindrome = true;
 
-	while (i < j) //Boucle pour décomposer la chaine pour savoir si c'est un palindrome
+	while (i < j) //Boucle pour dÃ©composer la chaine pour savoir si c'est un palindrome
 	{
 		if (motsSaisie[i] != motsSaisie[j])
 		{
@@ -170,7 +170,7 @@ void Palindrome(string motsSaisie) {
 		i++;
 		j--;
 	}
-	if (isPalindrome == true) { // Avec le booleen qui a été traité on gère l'affichage.
+	if (isPalindrome == true) { // Avec le booleen qui a Ã©tÃ© traitÃ© on gÃ¨re l'affichage.
 		cout << "La chaine est un palindrome" << endl;
 	}
 	else {
@@ -179,9 +179,9 @@ void Palindrome(string motsSaisie) {
 	system("PAUSE");
 }
 ///////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Saisir un nom et tout mettre en majuscule
-// Entrée / Sortie : Le tableau a une dimension.
-// Juste en entrée : la chaine saisie.
+// UtilitÃ© : Saisir un nom et tout mettre en majuscule
+// EntrÃ©e / Sortie : Le tableau a une dimension.
+// Juste en entrÃ©e : la chaine saisie.
 ////////////////////////////////////////////////////////////////////////////////////////
 
 void Majuscule(string motsSaisie) {
@@ -200,9 +200,9 @@ void Majuscule(string motsSaisie) {
 	cout << motsSaisie << endl;
 }
 ///////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Compter le nombre de voyelles dans une chaines de caractère.
-// Entrée / Sortie : Le tableau a une dimension.
-// Juste en entrée : la chaine saisie.
+// UtilitÃ© : Compter le nombre de voyelles dans une chaines de caractÃ¨re.
+// EntrÃ©e / Sortie : Le tableau a une dimension.
+// Juste en entrÃ©e : la chaine saisie.
 ////////////////////////////////////////////////////////////////////////////////////////
 
 void MotsTableau(string motsSaisie) {
@@ -229,9 +229,9 @@ void MotsTableau(string motsSaisie) {
 	system("PAUSE");
 }
 ///////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Vérifier si la chaine saisie est un palindrome.
-// Entrée / Sortie : Le tableau a une dimension.
-// Juste en entrée : la chaine saisie.
+// UtilitÃ© : VÃ©rifier si la chaine saisie est un palindrome.
+// EntrÃ©e / Sortie : Le tableau a une dimension.
+// Juste en entrÃ©e : la chaine saisie.
 ////////////////////////////////////////////////////////////////////////////////////////
 
 void PalindromeTableau(string motsSaisie) {
@@ -252,12 +252,12 @@ void PalindromeTableau(string motsSaisie) {
 				motsSaisie[i] = motsSaisie[i] - 32;
 			}
 		}
-		// On met tout en majuscule (voir la procédure majuscule)
+		// On met tout en majuscule (voir la procÃ©dure majuscule)
 		i = 0;
 		j = motsSaisie.length() - 1;
 		bool isPalindrome = true;
 
-		while (i < j) //Boucle pour décomposer la chaine pour savoir si c'est un palindrome
+		while (i < j) //Boucle pour dÃ©composer la chaine pour savoir si c'est un palindrome
 		{
 			if (motsSaisie[i] != motsSaisie[j])
 			{
@@ -266,7 +266,7 @@ void PalindromeTableau(string motsSaisie) {
 			i++;
 			j--;
 		}
-		if (isPalindrome == true) { // Avec le booleen qui a été traité on gère l'affichage.
+		if (isPalindrome == true) { // Avec le booleen qui a Ã©tÃ© traitÃ© on gÃ¨re l'affichage.
 			cout << motsSaisie << " Le nom est un palindrome" << endl;
 		}
 		else {
@@ -276,9 +276,9 @@ void PalindromeTableau(string motsSaisie) {
 	}
 }
 ///////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Saisir un nom et tout mettre en majuscule
-// Entrée / Sortie : Le tableau a une dimension.
-// Juste en entrée : la chaine saisie.
+// UtilitÃ© : Saisir un nom et tout mettre en majuscule
+// EntrÃ©e / Sortie : Le tableau a une dimension.
+// Juste en entrÃ©e : la chaine saisie.
 ////////////////////////////////////////////////////////////////////////////////////////
 
 void MajusculeTableau(string motsSaisie) {
@@ -303,9 +303,9 @@ void MajusculeTableau(string motsSaisie) {
 	}
 }
 ///////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Remplissage d'un tableau en fonction d'une chaine de caractère
-// Entrée / Sortie : Le tableau avec les valeurs saisies.
-// Juste en entrée : l'entier n.
+// UtilitÃ© : Remplissage d'un tableau en fonction d'une chaine de caractÃ¨re
+// EntrÃ©e / Sortie : Le tableau avec les valeurs saisies.
+// Juste en entrÃ©e : l'entier n.
 ////////////////////////////////////////////////////////////////////////////////////////
 
 void Tableau(string tab[TAILLEMATRICE], string motsSaisie) {
@@ -337,18 +337,18 @@ void TableauAuto(int N, int tab[TAILLEMATRICE]) {
 	}
 }
 /////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Fonction qui sort un nombre aléatoire.
-// Entrée : //
-// Sortie : Chiffre aléatoire
+// UtilitÃ© : Fonction qui sort un nombre alÃ©atoire.
+// EntrÃ©e : //
+// Sortie : Chiffre alÃ©atoire
 /////////////////////////////////////////////////////////////////////////////////////
 int Alea()
 {
 	return ((rand() % 100) + 1);
 }
 /////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Procédure permettant de trier un tableau.
-// Entrée : Le tableau et N le nombre de cases utilisés.
-// Sortie : Le tableau trié.
+// UtilitÃ© : ProcÃ©dure permettant de trier un tableau.
+// EntrÃ©e : Le tableau et N le nombre de cases utilisÃ©s.
+// Sortie : Le tableau triÃ©.
 /////////////////////////////////////////////////////////////////////////////////////
 void Tribulles(int tab[TAILLEMATRICE], int N) {
 	bool exg;
@@ -371,8 +371,8 @@ void Tribulles(int tab[TAILLEMATRICE], int N) {
 	}
 }
 /////////////////////////////////////////////////////////////////////////////////////
-// Utilité : Procédure permettant d'afficher de façon propre le tableau
-// Entrée : Le tableau et N le nombre de cases utilisés.
+// UtilitÃ© : ProcÃ©dure permettant d'afficher de faÃ§on propre le tableau
+// EntrÃ©e : Le tableau et N le nombre de cases utilisÃ©s.
 // Sortie : Le tableau.
 /////////////////////////////////////////////////////////////////////////////////////
 void Afftab(int tab[TAILLEMATRICE], int N) {
@@ -383,7 +383,7 @@ void Afftab(int tab[TAILLEMATRICE], int N) {
 }
 
 ///////////////////////////////////////////////////////////
-//Procedure autonome permettant de gérer une bibliotheque
+//Procedure autonome permettant de gÃ©rer une bibliotheque
 //
 //
 ///////////////////////////////////////////////////////////
@@ -399,7 +399,7 @@ void bibliotheque() {
 	nblivre = 0;
 	do {
 		cout << "vous avez " << nblivre << " livre" << endl;
-		saisirControleEntierBorne("1-afficher l'enssemble des livre\n 2-ajouter un nouveau livre\n 3-supprimer un livre\n 4-rechercher un livre\n 5-quitter ", 0, 5, choix);
+		saisirControleEntierBorne("1-Afficher l'enssemble des livres\n 2-Ajouter un nouveau livre\n 3-Supprimer un livre\n 4-Rechercher un livre\n 5-Quitter ", 0, 5, choix);
 		switch (choix) {
 		case 1:Affichagebibli(biblio, nblivre);
 			break;
@@ -410,7 +410,7 @@ void bibliotheque() {
 		case 4:
 			recherche(biblio, nblivre);
 			break;
-		default:cout << "bye" << endl;
+		default:cout << "Bonne continuation !" << endl;
 			reco = false;
 
 		}
@@ -426,10 +426,10 @@ void bibliotheque() {
 void Affichagebibli(t_livre biblio[MAXLIVRE], int nblivre) {
 	int i = 0;
 	for (i = 0; i < nblivre ; i++) {
-		cout << "le titre est :" << biblio[i].titre << endl;
-		cout << "l'auteur est :" << biblio[i].nom_aut << endl;
-		cout << "l'annee de publication  est :" << biblio[i].annee << endl;
-		cout << "il contient  :" << biblio[i].nb_pages << " pages" << endl;
+		cout << "Le titre est :" << biblio[i].titre << endl;
+		cout << "L'auteur est :" << biblio[i].nom_aut << endl;
+		cout << "L'annee de publication  est :" << biblio[i].annee << endl;
+		cout << "Il contient  :" << biblio[i].nb_pages << " pages" << endl;
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -438,22 +438,22 @@ void Affichagebibli(t_livre biblio[MAXLIVRE], int nblivre) {
 //Sorti  :biblio[MAXLIVRE] de type t_livre une structure (titre ,nom d'auteur, annee de publication et nbre de pages)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void Ajout(t_livre biblio[MAXLIVRE], int& nblivre) {
-	cout << "vous allez rentrer un nouveau livre" << endl;
+	cout << "Vous allez rentrer un nouveau livre << endl;
 	cout << "Saisir nom du livre" << endl;
 	cin >> biblio[nblivre].titre;
 
-	cout << "saisir nom de l auteur" << endl;
+	cout << "Saisir le nom de l auteur" << endl;
 	cin >> biblio[nblivre].nom_aut;
 
-	cout << "saisir annee de parution" << endl;
+	cout << "Saisir l annee de parution" << endl;
 	cin >> biblio[nblivre].annee;
 
-	cout << "Saisir le nombre de page" << endl;
+	cout << "Saisir le nombre de pages" << endl;
 	cin >> biblio[nblivre].nb_pages;
 
 	nblivre = nblivre + 1;
 
-	cout << "voous avez ajoute un livre" << endl;
+	cout << "Vous avez ajoute un livre" << endl;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Procedure permettant de rechercher nu livre dans la bibliotheque 
@@ -468,21 +468,21 @@ void recherche (t_livre biblio[MAXLIVRE],int nblivre){
 	cin >> livre_rech;
 	pos = Cherchelivre(biblio, nblivre, livre_rech);
 	if (pos >= 0) {
-		cout << "le titre est :" << biblio[pos].titre << endl;
-		cout << "l'auteur est :" << biblio[pos].nom_aut << endl;
-		cout << "l'annee de publication  est :" << biblio[pos].annee << endl;
-		cout << "il contient  :" << biblio[pos].nb_pages << " pages" << endl;
+		cout << "Le titre est :" << biblio[pos].titre << endl;
+		cout << "L'auteur est :" << biblio[pos].nom_aut << endl;
+		cout << "L'annee de publication  est :" << biblio[pos].annee << endl;
+		cout << "Il contient  :" << biblio[pos].nb_pages << " pages" << endl;
 	}
 	if (pos == -1) {
-		cout << "le livre na pas ete trouver" << endl;
+		cout << "lL livre n a pas ete trouver" << endl;
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Fonction permettant de retrouvrer la position ou se situe le livre dans le tableau
-// (ne gere pas le cas de titre identique ou de réédition)
+// (ne gere pas le cas de titre identique ou de rÃ©Ã©dition)
 //entrer biblio[MAXLIVRE] de type t_livre une structure (titre ,nom d'auteur, annee de publication et nbre de pages) 
 //	et nblivres le nombre de livre dans la bibliotheque et livrerechercher une chaine de caractere qui est le titre du livre rechercher
-// retourne un entier qui est i qui est la position si i est positif ; si le livre a pas été trouver il sera retourner -1
+// retourne un entier qui est i qui est la position si i est positif ; si le livre a pas Ã©tÃ© trouver il sera retourner -1
 //Sorti:
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int Cherchelivre(t_livre biblio[MAXLIVRE], int nblivre,string livrerechercher)
@@ -517,7 +517,7 @@ void Suppression(t_livre biblio[MAXLIVRE], int& nblivre) {
 	int position;
 	t_livre tempo;
 
-	cout << "entrer le titre du livre a supp" << endl;
+	cout << "Entrer le titre du livre a supprimer : " << endl;
 	cin >> livre_supp;
 	position = Cherchelivre(biblio, nblivre, livre_supp);
 	if (position >=0){
@@ -531,18 +531,18 @@ void Suppression(t_livre biblio[MAXLIVRE], int& nblivre) {
 		}
 	}
 	else {
-		cout << "le livre n'a pas été trouver " << endl;
+		cout << "Le livre n a pas ete trouve " << endl;
 	}
 	
 }
 
 ////////////////////////////////////////////////////////////
-// Procédure permettant de savoir si la bibliothèque est un ensemble (analyser la redondance)
-// Entrée: Bibliothèque et l'entier nblivre.
+// ProcÃ©dure permettant de savoir si la bibliothÃ¨que est un ensemble (analyser la redondance)
+// EntrÃ©e: BibliothÃ¨que et l'entier nblivre.
 // Sortie: Pas de sortie.
 ////////////////////////////////////////////////////////////
 void Ensemble (t_livre biblio[MAXLIVRE], int nblivre){
-	int i=0;
+	int i = 0;
 	int j = 0;
 	bool ensemble=true;
 	t_livre livre;
@@ -582,7 +582,7 @@ void EntreeAuteur ( t_liste_aut liste_aut , t_biblio bib )
 	string nomaut;
 	string preaut;
 	bool estdeja = false;
-	cout<<"Entrer me nom de l auteur :"<<endl;
+	cout<<"Entrer le nom de l auteur :"<<endl;
 	cin>>nomaut;
 	cout<<"Entrer le prenom  de l auteur :"<<endl;
 	cin>>preaut;
@@ -597,9 +597,9 @@ void EntreeAuteur ( t_liste_aut liste_aut , t_biblio bib )
 			i=i+1;
 		}
 	}
-	if ( estdeja==true)
+	if ( estdeja == true)
 	{
-		cout<<"L auteur est deja repertorier "<<endl;
+		cout<<"L auteur est deja repertorie "<<endl;
 		bib.bibli[bib.nblivre].nom_aut;
 	}
 	else
