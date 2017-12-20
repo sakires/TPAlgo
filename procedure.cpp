@@ -23,14 +23,14 @@ void bibliotheque2() {
 		case 1:
 			Affichagebibli(bib, liste_aut);
 			break;
-		case 2: 
-			Ajout( bib, liste_aut);
+		case 2:
+			Ajout(bib, liste_aut);
 			break;
 		case 3:
 			Suppression(bib);
 			break;
 		case 4:
-			recherche( bib, liste_aut);
+			recherche(bib, liste_aut);
 			break;
 		case 5:
 			Ensemble(bib);

@@ -383,18 +383,18 @@ void Afftab(int tab[TAILLEMATRICE], int N) {
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Procedure permettant d afficher tout les livres contenue dans la bibliotheque
-//	entrer biblio[MAXLIVRE] de type t_livre une structure (titre ,nom d'auteur, annee de publication et nbre de pages) 
-//	et nblivres le nombre de livre dans la bibliotheque
-//Sorti:
-//
+//Entrée : biblio[MAXLIVRE] de type t_livre une structure (titre ,nom d'auteur, annee de publication et nbre de pages) 
+//et nblivres le nombre de livre dans la bibliotheque
+//Sortie : Rien
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void Affichagebibli(t_biblio bib,t_liste_aut liste_aut) {
+void Affichagebibli(t_biblio bib, t_liste_aut liste_aut) {
 	int i = 0;
 	for (i = 0; i < bib.nblivre; i++) {
 		cout << "Le titre est : " << bib.biblio[i].titre << endl;
-		AfficherAuteur(bib,liste_aut,i);
+		AfficherAuteur(bib, liste_aut, i);
 		cout << "L'annee de publication  est : " << bib.biblio[i].annee << endl;
 		cout << "Il contient  : " << bib.biblio[i].nb_pages << " pages" << endl;
+		cout << endl;
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -403,11 +403,11 @@ void Affichagebibli(t_biblio bib,t_liste_aut liste_aut) {
 //Sorti  :biblio[MAXLIVRE] de type t_livre une structure (titre ,nom d'auteur, annee de publication et nbre de pages)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void Ajout(t_biblio& bib, t_liste_aut& liste_aut) {
-	cout << "Vous allez rentrer un nouveau livre "<< endl;
+	cout << "Vous allez rentrer un nouveau livre " << endl;
 	cout << "Saisir nom du livre " << endl;
 	cin >> bib.biblio[bib.nblivre].titre;
 	Majuscule(bib.biblio[bib.nblivre].titre);
-	EntreeAuteur( liste_aut,  bib);
+	EntreeAuteur(liste_aut, bib);
 	saisirControleEntierBorne("Saisir l annee de parution", liste_aut.li_aut[bib.nblivre].nais, 3000, bib.biblio[bib.nblivre].annee);
 
 	cout << "Saisir le nombre de pages" << endl;
@@ -422,7 +422,7 @@ void Ajout(t_biblio& bib, t_liste_aut& liste_aut) {
 //Entrer: biblio[MAXLIVRE] de type t_livre une structure (titre ,nom d'auteur, annee de publication et nbre de pages) 
 //	et nblivres le nombre de livre dans la bibliotheque
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void recherche(t_biblio bib,t_liste_aut liste_aut) {
+void recherche(t_biblio bib, t_liste_aut liste_aut) {
 	int pos;
 	string livre_rech;
 
@@ -432,7 +432,7 @@ void recherche(t_biblio bib,t_liste_aut liste_aut) {
 	pos = Cherchelivre(bib, livre_rech);
 	if (pos >= 0) {
 		cout << "Le titre est :" << bib.biblio[pos].titre << endl;
-		AfficherAuteur(bib,liste_aut, pos);
+		AfficherAuteur(bib, liste_aut, pos);
 		cout << "L'annee de publication  est :" << bib.biblio[pos].annee << endl;
 		cout << "Il contient  :" << bib.biblio[pos].nb_pages << " pages" << endl;
 	}
@@ -546,11 +546,14 @@ void EntreeAuteur(t_liste_aut& liste_aut, t_biblio& bib)
 	string preaut;
 	bool estdeja = false;
 	cout << "Entrer le nom de l auteur :" << endl;
-	cin >> nomaut;
+	getline(cin, nomaut);
+	getline(cin, nomaut); // On a du dupliquer getline, sinon ça ne fonctionnait pas et ça passait directement à la procédure Majuscule
 	Majuscule(nomaut);
+	
 	cout << "Entrer le prenom  de l auteur :" << endl;
-	cin >> preaut;
+	getline(cin, preaut);
 	Majuscule(preaut);
+
 	while (i<liste_aut.nbAut && estdeja == false)
 	{
 		if (liste_aut.li_aut[i].nom == nomaut && liste_aut.li_aut[i].prenom == preaut)
@@ -565,7 +568,7 @@ void EntreeAuteur(t_liste_aut& liste_aut, t_biblio& bib)
 	if (estdeja == true)
 	{
 		cout << "L auteur est deja repertorie " << endl;
-		bib.biblio[bib.nblivre].nom_aut;
+		bib.biblio[bib.nblivre].nom_aut = i;
 	}
 	else
 	{
@@ -592,9 +595,9 @@ void EntreeAuteur(t_liste_aut& liste_aut, t_biblio& bib)
 void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int i) {
 	int pos;
 	pos = bib.biblio[i].nom_aut;
-	cout <<"le nom de l auteur est : "<< liste_aut.li_aut[pos].nom<<endl;
-	cout <<"le prenom de l auteur est : " << liste_aut.li_aut[pos].prenom<<endl;
-	cout <<"la nationalite de l auteur est : "<< liste_aut.li_aut[pos].nat<<endl;
-	cout <<"la date de naissance de l auteur est : " << liste_aut.li_aut[pos].nais<<endl;
-	cout <<"la date de mort de l auteur est : "<< liste_aut.li_aut[pos].mort<<endl;
+	cout << "le nom de l auteur est : " << liste_aut.li_aut[pos].nom << endl;
+	cout << "le prenom de l auteur est : " << liste_aut.li_aut[pos].prenom << endl;
+	cout << "la nationalite de l auteur est : " << liste_aut.li_aut[pos].nat << endl;
+	cout << "la date de naissance de l auteur est : " << liste_aut.li_aut[pos].nais << endl;
+	cout << "la date de mort de l auteur est : " << liste_aut.li_aut[pos].mort << endl;
 }
