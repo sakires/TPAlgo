@@ -11,9 +11,10 @@ void bibliotheque2() {
 	int choix;
 	bool reco;
 	t_biblio bib;
-
+	t_liste_aut liste_aut;
 	reco = true;
 	bib.nblivre = 0;
+	liste_aut.nbAut = 0;
 	do {
 		cout << "Vous avez " << bib.nblivre << " livre(s)" << endl;
 		saisirControleEntierBorne("1-Afficher l'ensemble des livres\n 2-Ajouter un nouveau livre\n 3-Supprimer un livre\n 4-Rechercher un livre\n 5-Ensemble\n 6-Quitter\n ", 0, 6, choix);
@@ -22,7 +23,7 @@ void bibliotheque2() {
 			Affichagebibli(bib);
 			break;
 		case 2: 
-			Ajout(bib);
+			Ajout( bib, liste_aut);
 			break;
 		case 3:
 			Suppression(bib);

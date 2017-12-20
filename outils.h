@@ -65,13 +65,13 @@ void TableauAuto(int N, int tab[TAILLEMATRICE]);
 void Tribulles(int tab[TAILLEMATRICE], int N);
 void Afftab(int tab[TAILLEMATRICE], int N);
 void bibliotheque();
-void Ajout(t_biblio bib);
+void Ajout(t_biblio& bib, t_liste_aut& liste_aut);
 void Affichagebibli(t_biblio bib);
 void Suppression(t_biblio& bib);
 void recherche(t_biblio bib);
 void Ensemble(t_biblio bib);
 void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int& i);
-void EntreeAuteur(t_liste_aut liste_aut, t_biblio bib);
+void EntreeAuteur(t_liste_aut& liste_aut, t_biblio& bib);
 //////////////////////////////////////////////////////////////////////////
 
 #endif

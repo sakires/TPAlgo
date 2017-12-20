@@ -394,7 +394,6 @@ void bibliotheque() {
 	t_livre biblio[MAXLIVRE];
 	int nblivre;
 	string titrerech;
-
 	reco = true;
 	nblivre = 0;
 	do {
@@ -412,7 +411,6 @@ void bibliotheque() {
 			break;
 		default:cout << "Bonne continuation !" << endl;
 			reco = false;
-
 		}
 	} while (reco);
 }*/
@@ -437,13 +435,12 @@ void Affichagebibli(t_biblio bib) {
 //Entrer :nblivre pour savoir ou on en es dans la bibliotheque 
 //Sorti  :biblio[MAXLIVRE] de type t_livre une structure (titre ,nom d'auteur, annee de publication et nbre de pages)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void Ajout(t_biblio bib) {
+void Ajout(t_biblio& bib, t_liste_aut& liste_aut) {
 	cout << "Vous allez rentrer un nouveau livre "<< endl;
 		cout << "Saisir nom du livre" << endl;
 	cin >> bib.biblio[bib.nblivre].titre;
 
-	cout << "Saisir le nom de l auteur" << endl;
-	cin >> bib.biblio[bib.nblivre].nom_aut;
+	EntreeAuteur( liste_aut,  bib);
 
 	cout << "Saisir l annee de parution" << endl;
 	cin >> bib.biblio[bib.nblivre].annee;
@@ -576,7 +573,7 @@ void Ensemble(t_biblio bib) {
 //
 //
 ///////////////////////////////////////////////////
-void EntreeAuteur(t_liste_aut liste_aut, t_biblio bib)
+void EntreeAuteur(t_liste_aut& liste_aut, t_biblio& bib)
 {
 	int i = 0;
 	string nomaut;
