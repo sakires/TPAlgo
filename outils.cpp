@@ -197,7 +197,7 @@ void Majuscule(string motsSaisie) {
 			motsSaisie[i] = motsSaisie[i] - 32;
 		}
 	}
-	cout << motsSaisie << endl;
+		//	cout << motsSaisie << endl; Facultatif
 }
 ///////////////////////////////////////////////////////////////////////////////////////
 // Utilité : Compter le nombre de voyelles dans une chaines de caractère.
@@ -381,39 +381,6 @@ void Afftab(int tab[TAILLEMATRICE], int N) {
 		cout << tab[i] << setw(3);
 	}
 }
-
-///////////////////////////////////////////////////////////
-//Procedure autonome permettant de gérer une bibliotheque
-//
-//
-///////////////////////////////////////////////////////////
-/*#define MAXLIVRE 50
-void bibliotheque() {
-	int choix;
-	bool reco;
-	t_livre biblio[MAXLIVRE];
-	int nblivre;
-	string titrerech;
-	reco = true;
-	nblivre = 0;
-	do {
-		cout << "vous avez " << nblivre << " livre" << endl;
-		saisirControleEntierBorne("1-Afficher l'enssemble des livres\n 2-Ajouter un nouveau livre\n 3-Supprimer un livre\n 4-Rechercher un livre\n 5-Quitter ", 0, 5, choix);
-		switch (choix) {
-		case 1:Affichagebibli(biblio, nblivre);
-			break;
-		case 2: Ajout(biblio, nblivre);
-			break;
-		case 3:Suppression(biblio, nblivre);
-			break;
-		case 4:
-			recherche(biblio, nblivre);
-			break;
-		default:cout << "Bonne continuation !" << endl;
-			reco = false;
-		}
-	} while (reco);
-}*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Procedure permettant d afficher tout les livres contenue dans la bibliotheque
 //	entrer biblio[MAXLIVRE] de type t_livre une structure (titre ,nom d'auteur, annee de publication et nbre de pages) 
@@ -424,10 +391,10 @@ void bibliotheque() {
 void Affichagebibli(t_biblio bib) {
 	int i = 0;
 	for (i = 0; i < bib.nblivre; i++) {
-		cout << "Le titre est :" << bib.biblio[i].titre << endl;
-		cout << "L'auteur est :" << bib.biblio[i].nom_aut << endl;
-		cout << "L'annee de publication  est :" << bib.biblio[i].annee << endl;
-		cout << "Il contient  :" << bib.biblio[i].nb_pages << " pages" << endl;
+		cout << "Le titre est : " << bib.biblio[i].titre << endl;
+		cout << "L'auteur est : " << bib.biblio[i].nom_aut << endl;
+		cout << "L'annee de publication  est : " << bib.biblio[i].annee << endl;
+		cout << "Il contient  : " << bib.biblio[i].nb_pages << " pages" << endl;
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -436,21 +403,23 @@ void Affichagebibli(t_biblio bib) {
 //Sorti  :biblio[MAXLIVRE] de type t_livre une structure (titre ,nom d'auteur, annee de publication et nbre de pages)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void Ajout(t_biblio& bib, t_liste_aut& liste_aut) {
-	cout << "Vous allez rentrer un nouveau livre "<< endl;
-		cout << "Saisir nom du livre" << endl;
+	cout << "Vous allez rentrer un nouveau livre " << endl;
+	cout << "Saisir nom du livre" << endl;
 	cin >> bib.biblio[bib.nblivre].titre;
+	Majuscule(bib.biblio[bib.nblivre].titre);
 
-	EntreeAuteur( liste_aut,  bib);
+	EntreeAuteur(liste_aut, bib);
+	
 
 	cout << "Saisir l annee de parution" << endl;
 	cin >> bib.biblio[bib.nblivre].annee;
 
 	cout << "Saisir le nombre de pages" << endl;
 	cin >> bib.biblio[bib.nblivre].nb_pages;
-
+	
 	bib.nblivre = bib.nblivre + 1;
 
-	cout << "Vous avez ajoute un livre" << endl;
+	cout << "Vous avez ajoute un livre " << endl;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Procedure permettant de rechercher nu livre dans la bibliotheque 
@@ -463,6 +432,7 @@ void recherche(t_biblio bib) {
 
 	cout << "Saisir le nom du livre rechercher" << endl;
 	cin >> livre_rech;
+	Majuscule(livre_rech);
 	pos = Cherchelivre(bib, livre_rech);
 	if (pos >= 0) {
 		cout << "Le titre est :" << bib.biblio[pos].titre << endl;
@@ -516,6 +486,7 @@ void Suppression(t_biblio& bib) {
 
 	cout << "Entrer le titre du livre a supprimer : " << endl;
 	cin >> livre_supp;
+	Majuscule(livre_supp);
 	position = Cherchelivre(bib, livre_supp);
 	if (position >= 0) {
 		for (i = position; i < bib.nblivre; i++) {
@@ -563,16 +534,16 @@ void Ensemble(t_biblio bib) {
 		cout << " c'est un ensemble" << endl;
 	}
 	else {
-		cout << "c'est pas un ensemble" << endl;
+		cout << "ce n'est pas un ensemble" << endl;
 	}
 }
 
-//////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+// Procédure permettant de saisir un auteur et vérifier s'il n'est pas dékà dedans (redondance)
+// Entrée : Rien
+// Sortie : La structure de la liste et des auteurs ansi que la structure de la bibliothèque
 //
-//
-//
-//
-///////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
 void EntreeAuteur(t_liste_aut& liste_aut, t_biblio& bib)
 {
 	int i = 0;
@@ -581,8 +552,12 @@ void EntreeAuteur(t_liste_aut& liste_aut, t_biblio& bib)
 	bool estdeja = false;
 	cout << "Entrer le nom de l auteur :" << endl;
 	cin >> nomaut;
+	Majuscule(nomaut);
+
 	cout << "Entrer le prenom  de l auteur :" << endl;
 	cin >> preaut;
+	Majuscule(preaut);
+
 	while (i<liste_aut.nbAut && estdeja == false)
 	{
 		if (liste_aut.li_aut[i].nom == nomaut && liste_aut.li_aut[i].prenom == preaut)
@@ -614,15 +589,13 @@ void EntreeAuteur(t_liste_aut& liste_aut, t_biblio& bib)
 
 	}
 
-
 }
-//////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Procédure permettant d'afficher un auteur.
+// Entrée : La structure de la bibliothèque et de l'auteur, et l'entier i pour trouver la position du nom de l'auteur.
 //
-//
-//
-//
-///////////////////////////////////////////////////
-void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int& i) {
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int i) {
 	int pos;
 	pos = bib.biblio[i].nom_aut;
 	cout << liste_aut.li_aut[pos].nom;

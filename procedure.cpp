@@ -17,13 +17,13 @@ void bibliotheque2() {
 	liste_aut.nbAut = 0;
 	do {
 		cout << "Vous avez " << bib.nblivre << " livre(s)" << endl;
-		saisirControleEntierBorne("1-Afficher l'ensemble des livres\n 2-Ajouter un nouveau livre\n 3-Supprimer un livre\n 4-Rechercher un livre\n 5-Ensemble\n 6-Quitter\n ", 0, 6, choix);
+		saisirControleEntierBorne("1-Afficher l'ensemble des livres\n2-Ajouter un nouveau livre\n3-Supprimer un livre\n4-Rechercher un livre\n5-Ensemble\n6-Quitter\n ", 0, 6, choix);
 		switch (choix) {
 		case 1:
 			Affichagebibli(bib);
 			break;
-		case 2: 
-			Ajout( bib, liste_aut);
+		case 2:
+			Ajout(bib, liste_aut);
 			break;
 		case 3:
 			Suppression(bib);
@@ -34,7 +34,7 @@ void bibliotheque2() {
 		case 5:
 			Ensemble(bib);
 			break;
-		default:cout << "bye" << endl;
+		default:cout << "Bonne continuation !" << endl;
 			reco = false;
 
 		}
