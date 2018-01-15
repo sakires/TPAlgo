@@ -10,12 +10,13 @@
 using namespace std;
 
 ///////////////////////// Constante //////////////////////////////////////
-const int MININT = -2147483630; // On ne met pas au maximum pour la compatibilité entre PC.
+const int MININT = -2147483630; // On ne met pas au maximum pour la compatibilite entre PC.
 const int MAXINT = 2147483630;
 const int MAXLIVRE = 50;
 const int MAX_AUTEUR = 100;
+const int MAXLISTE = 20;
 #define TAILLEMATRICE 100
-///////////////////////// Type composé ///////////////////////////////////
+///////////////////////// Type compose ///////////////////////////////////
 
 typedef struct {
 	string titre;
@@ -42,16 +43,22 @@ typedef struct {
 	int nbAut;
 }t_liste_aut;
 
+typedef struct {
+	int liste[MAXLISTE];
+	int nbliste;
+}t_liste_int;
 //////////////////////////////////////////////////////////////////////////
 
 //////////////////////// Fonction ////////////////////////////////////////
 bool date(int jour, int mois, int annee);
 int Alea();
 int Cherchelivre(t_biblio bib, string livrerechercher);
+int ChercheListe(t_liste_int li, int var);
+int Nbelementliste(t_liste_int li);
 //void lendemain(int &j, int &m, int &a);
 //////////////////////////////////////////////////////////////////////////
 
-/////////////////////// Procédure ////////////////////////////////////////
+/////////////////////// Procedure ////////////////////////////////////////
 void saisirControleEntierBorne(string message, int borneinf, int bornesup, int& nombre);
 void TableauCarre(int tab[TAILLEMATRICE][TAILLEMATRICE], int n);
 void Tableau(string tab[TAILLEMATRICE], string motsSaisie);
@@ -71,6 +78,13 @@ void recherche(t_biblio bib, t_liste_aut liste_aut);
 void Ensemble(t_biblio bib);
 void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int i);
 void EntreeAuteur(t_liste_aut& liste_aut, t_biblio& bib);
+void Affliste(t_liste_int li);
+void Ajoutliste(t_liste_int& li);
+void Suppressionliste(t_liste_int& li);
+void initialisation(t_liste_int& li);
+void Reset(t_liste_int& li);
+void ProChercheListe(t_liste_int li);
+void Tribullesliste(t_liste_int& li);
 //////////////////////////////////////////////////////////////////////////
 
 #endif

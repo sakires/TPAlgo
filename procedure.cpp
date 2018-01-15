@@ -37,7 +37,49 @@ void bibliotheque2() {
 			break;
 		default:cout << "Bonne continuation !" << endl;
 			reco = false;
+		}
+	} while (reco);
+}
+void gestionListe() {
+	int choix;
+	bool reco;
+	int var = 0;
+	t_liste_int li;
+	reco = true;
+	int mavar;
 
+	do {
+		saisirControleEntierBorne("1-Initialiser une nouvelle liste\n2-Ajouter un nouvel element en position donnee\n3-Supprimer un element en position donnee\n4-Rechercher la position d un element\n5-Afficher le contenu de la liste\n6-Vider completement la liste \n7-Trie a bulle \n8-Connaitre le nombre d element de la liste\n9-Quitter", 0, 9, choix);
+
+		switch (choix) {
+		case 1:
+			initialisation(li);
+			break;
+		case 2:
+			Ajoutliste(li);
+			break;
+		case 3:
+			Suppressionliste(li);
+			break;
+		case 4:
+			ProChercheListe(li);
+			break;
+		case 5:
+			Affliste(li);
+			break;
+		case 6:
+			Reset(li);
+			break;
+		case 7:
+			Tribullesliste(li);
+			break;
+		case 8:
+			mavar = Nbelementliste(li);
+			cout << "Il y a " << mavar << " element(s)" << endl;
+			break;
+		default:
+			cout << "Bonne continuation !" << endl;
+			reco = false;
 		}
 	} while (reco);
 }
