@@ -507,7 +507,6 @@ void Suppression(t_biblio& bib) {
 	}
 
 }
-
 ////////////////////////////////////////////////////////////
 // Procedure permettant de savoir si la bibliotheque est un ensemble (analyser la redondance)
 // Entree: Bibliotheque et l'entier nblivre.
@@ -519,7 +518,7 @@ void Ensemble(t_biblio bib) {
 	bool ensemble = true;
 	t_livre livre;
 
-	while (ensemble && i<bib.nblivre)
+	while (ensemble && i<bib.nblivre && bib.nblivre !=1 && bib.nblivre !=2)
 	{
 		livre.titre = bib.biblio[i].titre;
 		livre.nom_aut = bib.biblio[i].nom_aut;
@@ -535,10 +534,10 @@ void Ensemble(t_biblio bib) {
 		i++;
 	}
 	if (ensemble == true) {
-		cout << " c'est un ensemble" << endl;
+		cout << "C'est un ensemble" << endl;
 	}
 	else {
-		cout << "c'est pas un ensemble" << endl;
+		cout << "C'est pas un ensemble" << endl;
 	}
 }
 
@@ -710,7 +709,7 @@ void Suppressionliste(t_liste_int& li) {//a verifier
 	int i = 0;
 	int position;
 
-	cout << "Entrer la position de la valeur à supprimer : " << endl;
+	cout << "Entrer la position de la valeur Ã  supprimer : " << endl;
 	cin >> position;
 	for (i = position; i < li.nbliste; i++) {
 		li.liste[i] = li.liste[i + 1];
