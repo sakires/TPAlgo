@@ -518,14 +518,11 @@ void Ensemble(t_biblio bib) {
 	bool ensemble = true;
 	t_livre livre;
 
-	while (ensemble && i<bib.nblivre && bib.nblivre !=1 && bib.nblivre !=2)
+	while (ensemble && i<bib.nblivre && bib.nblivre != 1)
 	{
-		livre.titre = bib.biblio[i].titre;
-		livre.nom_aut = bib.biblio[i].nom_aut;
-		livre.annee = bib.biblio[i].annee;
 		while (ensemble && j<bib.nblivre)
 		{
-			if (livre.titre == bib.biblio[j].titre && livre.nom_aut == bib.biblio[j].nom_aut && livre.annee == bib.biblio[j].annee)
+			if (bib.biblio[i].titre == bib.biblio[j].titre && bib.biblio[i].nom_aut == bib.biblio[j].nom_aut && bib.biblio[i].annee == bib.biblio[j].annee && bib.biblio[i].titre != bib.biblio[j].titre && bib.biblio[i].nom_aut != bib.biblio[j].nom_aut && bib.biblio[i].annee != bib.biblio[j].annee)
 			{
 				ensemble = false;
 			}
@@ -540,7 +537,6 @@ void Ensemble(t_biblio bib) {
 		cout << "C'est pas un ensemble" << endl;
 	}
 }
-
 //////////////////////////////////////////////////
 // Procedure permettant de saisir un auteur et verifier s'il n'est pas deja dedans (redondance)
 // Entree : Rien
@@ -608,14 +604,12 @@ void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int i) {
 }
 
 ///////////////////////////////////////////////////////////////////
-//
-//
-//
-//
+// Procedure permettant de choisir le type de livre.
+// Sortie : La structure de la bibliotheque.
 ///////////////////////////////////////////////////////////////////
 void format(t_biblio& bib) {
 	int choix;
-	saisirControleEntierBorne("choisir le format de votre oeuvre\n 1)Roman\n 2)dematerialise\n 3)manga 4)pocket\n 5)bande dessiner\n 6)recueil\n 7)Magazine 8)non reconnu dans la base ", 0, 8, choix);
+	saisirControleEntierBorne("Choisir le format de votre oeuvre\n 1)Roman\n 2)Dmaterialise\n 3)Manga 4)pocket\n 5)Bande dessiner\n 6)Recueil\n 7)Magazine 8)Non reconnu dans la base ", 0, 8, choix);
 	switch (choix) {
 	case 1: 
 		bib.biblio[bib.nblivre].format = "roman";
