@@ -616,7 +616,7 @@ void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int i) {
 ///////////////////////////////////////////////////////////////////
 void format(t_biblio& bib) {
 	int choix;
-	saisirControleEntierBorne("choisir le format de votre oeuvre\n 1)Roman\n 2)dematerialise\n 3)manga\ 4)pocket\n 5)bande dessiner\n 6)recueil\n 7)Magazine 8)non reconnu dans la base ", 0, 8, choix);
+	saisirControleEntierBorne("choisir le format de votre oeuvre\n 1)Roman\n 2)dematerialise\n 3)manga 4)pocket\n 5)bande dessiner\n 6)recueil\n 7)Magazine 8)non reconnu dans la base ", 0, 8, choix);
 	switch (choix) {
 	case 1: 
 		bib.biblio[bib.nblivre].format = "roman";
