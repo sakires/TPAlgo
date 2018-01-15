@@ -23,6 +23,7 @@ typedef struct {
 	int nom_aut;
 	int annee;
 	int nb_pages;
+	string format;
 }t_livre;
 
 typedef struct {
@@ -85,6 +86,7 @@ void initialisation(t_liste_int& li);
 void Reset(t_liste_int& li);
 void ProChercheListe(t_liste_int li);
 void Tribullesliste(t_liste_int& li);
+void format(t_biblio& bib);
 //////////////////////////////////////////////////////////////////////////
 
 #endif

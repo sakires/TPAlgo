@@ -390,14 +390,16 @@ void Afftab(int tab[TAILLEMATRICE], int N) {
 //et nblivres le nombre de livre dans la bibliotheque
 //Sortie : Rien
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void Affichagebibli(t_biblio bib, t_liste_aut liste_aut) {
+void Affichagebibli(t_biblio bib , t_liste_aut liste_aut) {
 	int i = 0;
 	for (i = 0; i < bib.nblivre; i++) {
 		cout << "Le titre est : " << bib.biblio[i].titre << endl;
 		AfficherAuteur(bib, liste_aut, i);
 		cout << "L'annee de publication  est : " << bib.biblio[i].annee << endl;
 		cout << "Il contient  : " << bib.biblio[i].nb_pages << " pages" << endl;
+		cout << "le format de l oeuvre est :" << bib.biblio[i].format << endl;
 		cout << endl;
+		system("pause");
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -411,10 +413,11 @@ void Ajout(t_biblio& bib, t_liste_aut& liste_aut) {
 	cin >> bib.biblio[bib.nblivre].titre;
 	Majuscule(bib.biblio[bib.nblivre].titre);
 	EntreeAuteur(liste_aut, bib);
-	saisirControleEntierBorne("Saisir l annee de parution", liste_aut.li_aut[bib.nblivre].nais, 3000, bib.biblio[bib.nblivre].annee);
+	saisirControleEntierBorne("Saisir l annee de parution", liste_aut.li_aut[bib.nblivre].nais, 2100, bib.biblio[bib.nblivre].annee);
 
 	cout << "Saisir le nombre de pages" << endl;
 	cin >> bib.biblio[bib.nblivre].nb_pages;
+	format(bib);
 
 	bib.nblivre = bib.nblivre + 1;
 
@@ -438,6 +441,7 @@ void recherche(t_biblio bib, t_liste_aut liste_aut) {
 		AfficherAuteur(bib, liste_aut, pos);
 		cout << "L'annee de publication  est :" << bib.biblio[pos].annee << endl;
 		cout << "Il contient  :" << bib.biblio[pos].nb_pages << " pages" << endl;
+		cout << "le format de l oeuvre est :" << bib.biblio[pos].format << endl;
 	}
 	if (pos == -1) {
 		cout << "lL livre n a pas ete trouver" << endl;
@@ -493,6 +497,7 @@ void Suppression(t_biblio& bib) {
 			bib.biblio[i].nom_aut = bib.biblio[i + 1].nom_aut;
 			bib.biblio[i].annee = bib.biblio[i + 1].annee;
 			bib.biblio[i].nb_pages = bib.biblio[i + 1].nb_pages;
+			bib.biblio[i].format = bib.biblio[i + 1].format;
 			bib.nblivre = bib.nblivre - 1;
 
 		}
@@ -581,9 +586,7 @@ void EntreeAuteur(t_liste_aut& liste_aut, t_biblio& bib)
 		cin >> liste_aut.li_aut[liste_aut.nbAut].nat;
 		cout << "Saisir l annee de naissance : " << endl;
 		cin >> liste_aut.li_aut[liste_aut.nbAut].nais;
-		/*cout << "Saisir l annee de mort : " << endl;*/
 		saisirControleEntierBorne("Saisir l annee de mort : \n", liste_aut.li_aut[liste_aut.nbAut].nais, liste_aut.li_aut[liste_aut.nbAut].nais + 120, liste_aut.li_aut[liste_aut.nbAut].mort);
-		/*cin >> liste_aut.li_aut[liste_aut.nbAut].mort;*/
 		bib.biblio[bib.nblivre].nom_aut = liste_aut.nbAut;
 		liste_aut.nbAut = liste_aut.nbAut + 1;
 
@@ -604,6 +607,39 @@ void AfficherAuteur(t_biblio bib, t_liste_aut liste_aut, int i) {
 	cout << "la date de naissance de l auteur est : " << liste_aut.li_aut[pos].nais << endl;
 	cout << "la date de mort de l auteur est : " << liste_aut.li_aut[pos].mort << endl;
 }
+
+///////////////////////////////////////////////////////////////////
+//
+//
+//
+//
+///////////////////////////////////////////////////////////////////
+void format(t_biblio& bib) {
+	int choix;
+	saisirControleEntierBorne("choisir le format de votre oeuvre\n 1)Roman\n 2)dematerialise\n 3)manga\ 4)pocket\n 5)bande dessiner\n 6)recueil\n 7)non reconnu dans la base ", 0, 7, choix);
+	switch (choix) {
+	case 1: 
+		bib.biblio[bib.nblivre].format = "roman";
+		break;
+	case 2:
+		bib.biblio[bib.nblivre].format = "dematerialise";
+		break;
+	case 3: 
+		bib.biblio[bib.nblivre].format = "manga";
+		break;
+	case 4:
+		bib.biblio[bib.nblivre].format = "pocket";
+		break;
+	case 5:
+		bib.biblio[bib.nblivre].format = "bande dessiner";
+		break;
+	case 6:
+		bib.biblio[bib.nblivre].format = "recueil";
+		break;
+	default: 
+		bib.biblio[bib.nblivre].format = "non reconnu dans la base";
+	}
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////
@@ -616,10 +652,10 @@ void Affliste(t_liste_int li) {
 		cout << li.liste[i] << endl;
 	}
 }
-/////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 //Fonction permettant de chercher un element dans la liste
 //Entree : La structure de la liste, l entier de la position
-////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 int ChercheListe(t_liste_int li, int var)
 {
 	bool trouver = false;
